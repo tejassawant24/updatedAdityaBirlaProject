@@ -1,0 +1,115 @@
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Aditya Birla</title>
+</head>
+
+<body>
+	
+	<section id="nav-bar">
+	<nav class="navbar navbar-expand-lg navbar-light ">
+    <a class="navbar-brand" href="#"></a>
+    </nav>
+    </section>
+    <!---nav-bar end----->
+<section class="cover">
+    <div class="container back">
+
+			<div class="row heading">
+			        <div class="col-md-12 head mt-15">
+			    	   <h3><strong>Life Goal Calculator</strong></h3>
+			         </div>
+			 </div>
+
+			 <div class="container progressbars">
+				<div class="row">
+            <div class="col-md-12 text-center">
+        <ul class="progressbar">
+            <li class="active"><strong>Enter <br>Details</strong></li>
+            <li class="active" ><strong>Select & <br>Prioritize Goals</strong></li>
+            <li><strong>Calculate Goal <br>Values</strong></li>
+        </ul>
+    </div>
+    </div>
+    </div>
+    		<div class="row">
+    			
+             <div class="col-md-12 gallary">
+    				<div class="goals">
+    					<p><b>SELECT GOALS</b></p>
+					</div>
+					
+					<ul>
+						<li><a [routerLink]="" (click)="addSelfDevelopment()"><div class="img-div"> <img src="{{selfDevelopmentImg}}"></div></a><p>Self<br>Development</p></li>
+						<li><a [routerLink]="" (click)="addStartingBusiness()"><div class="img-div"><img src="{{startingBusinessImg}}"></div></a><p>Starting<br>Business</p></li>
+    					<li><a [routerLink]="" (click)="addBike()"><div class="img-div"><img src="{{bikeImg}}"></div></a><p>Bike</p></li>
+    					<li><a [routerLink]="" (click)="addMarriage()"><div class="img-div"><img src="{{marriageImg}}"></div></a><p>Marriage</p></li>
+    					<li><a [routerLink]="" (click)="addHoneymoon()"><div class="img-div"><img src="{{honeyMoonImg}}"></div></a><p>Honeymoon</p></li>
+    					<li><a [routerLink]="" (click)="addWealthCreation()"><div class="img-div"><img src="{{wealthCreationImg}}"></div></a><p>Wealth<br>Creation</p></li>
+    					<li><a [routerLink]="" (click)="addHoliday()" ><div class="img-div"> <img src="{{holidayImg}}"></div></a><p>Holiday </p></li>
+    					<li><a [routerLink]="" (click)="addCar()"><div class="img-div"><img src="{{carImg}}"></div></a><p>Car</p></li>
+    					<li><a [routerLink]="" (click)="addChildsEducation()"><div class="img-div"><img src="{{childsEducationImg}}"></div></a><p>Child’s<br>Education</p></li>
+    					<li><a [routerLink]="" (click)="addChildsMarriage()"><div class="img-div"> <img src="{{childsMarriageImg}}"></div></a><p>Child’s Marriage</p></li>
+    					<li><a [routerLink]="" (click)="addFollowPassion()"><div class="img-div"><img src="{{followPassionImg}}"></div></a><p> Follow Passion</p></li>
+    					<li><a [routerLink]="" (click)="addWorldTour()"><div class="img-div"><img src="{{worldTourImg}}"></div></a><p>World Tour</p></li>
+    					<li><a [routerLink]="" (click)="addDreamHome()"><div class="img-div"><img src="{{luxuryCarImg}}"></div></a><p>Dream<br>Home</p></li>
+						<li><a [routerLink]="" (click)="addRetirement()"><div class="img-div"> <img src="{{retirementImg}}"></div></a><p>Retirement </p></li>
+    					<li><a [routerLink]="" (click)="addPhilanthropy()"><div class="img-div"><img src="{{philanthropyImg}}"></div></a><p>Philanthropy</p></li>
+						<li><a [routerLink]="" (click)="addothergoal(othergoal.value)"><div class="img-div"><img src="{{othergoalImg}}"></div></a><p><input #othergoal type="text"></p></li>
+					</ul>
+					
+				</div>
+    		</div>
+
+    				<div class="lastbtns">
+			    	<div class=" row">
+							<div class="col-md-12">
+							    <!-- <a routerLink="/goals"><button type="button" class="btn nextbtn" (click)="postData()" ><b>Next</b></button></a> -->
+								<a><button type="button" class="btn nextbtn" (click)="data()"><b>Next</b></button></a>
+							</div>
+				   </div>
+				</div>
+		</div>
+
+</section> 
+
+  <!----footer start----------->
+
+<section id="footer">
+	<div class="container">
+	<div class="row">
+
+	<div class="col-md-8">
+		<!--<img src="img/demo.png">-->
+		<div class="footer">
+		<p><b>@ 2019 All Rights Reserved, Aditya Birla Management Corporation Pvt. Ltd.</b></p>
+		<ul>
+		<li><a href="#">Terms and Conditions</a></li>
+		<li><a href="#">LEARN MORE</a></li>
+		<li><a href="#">FAQ</a></li>
+		<li><a href="#">Blog</a></li>
+        </ul>
+		</div>
+	</div>
+
+	<div class="col-md-4">
+			 	<div class="footer-icons">
+			 	<i class="fa fa-facebook"></i>
+			 	<i class="fa fa-twitter"></i>
+			 	<i class="fa fa-instagram"></i>
+			 	<i class="fa fa-youtube-play"></i>
+			 	<i class="fa fa-linkedin"></i>
+			 	</div>
+	</div>
+	</div>
+	
+	
+	</div>
+</section>
+
+</body>
