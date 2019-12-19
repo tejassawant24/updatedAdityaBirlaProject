@@ -44,7 +44,7 @@ export class GoalsComponent implements OnInit {
       // console.log(uid);
       this.abs.getdata(localStorage.getItem('id')).subscribe(res => {
         
-        console.log("result -> ",res);
+        // console.log("result -> ",res);
         this.xyz = res;
         console.log(this.xyz);
         this.naav =this.xyz[1].name;
