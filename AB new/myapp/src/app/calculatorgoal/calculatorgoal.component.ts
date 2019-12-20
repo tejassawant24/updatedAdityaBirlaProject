@@ -27,6 +27,7 @@ export class CalculatorgoalComponent implements OnInit {
   public numberOfKids: any;
   public validator: string;
   public uid : any;
+  public formJson: any = {};
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -108,26 +109,27 @@ export class CalculatorgoalComponent implements OnInit {
 
   //Methods to store and show no. of kids on click event on 4 kids images
   kid1() {
-    this.userForm.value.kids = 1;
-    this.numberOfKids = this.userForm.value.kids;
+    this.userForm.value.kids = 1
+    this.formJson.kids = this.userForm.value.kids;
     console.log(this.numberOfKids);
     this.validator="";
   }
   kid2() {
-    this.userForm.value.kids = 2;
-    this.numberOfKids = this.userForm.value.kids;
+    this.userForm.value.kids = 2
+    this.formJson.kids = this.userForm.value.kids;
     console.log(this.numberOfKids);
     this.validator="";
   }
   kid3() {
-    this.userForm.value.kids = 3;
-    this.numberOfKids = this.userForm.value.kids;
+    this.userForm.value.kids = 3
+    this.formJson.kids = this.userForm.value.kids;
     console.log(this.numberOfKids);
     this.validator="";
   }
   kid4() {
-    this.userForm.value.kids = 4;
-    this.numberOfKids = this.userForm.value.kids;
+    this.userForm.value.kids = 4
+    this.formJson.kids = this.userForm.value.kids;
+    console.log("=>",this.formJson.kids)
     console.log(this.numberOfKids);
     console.log(this.userForm.value.kids);
     this.validator="";
@@ -135,55 +137,57 @@ export class CalculatorgoalComponent implements OnInit {
 
   //Data coming from Reactive form on click event
   Save() {
-    let formJson: any = {};
+    // let formJson: any = {};
     // console.log(this.userForm.value.name);
-    formJson.name =this.userForm.value.name;
-    formJson.age = this.userForm.value.age;
+    this.formJson.name =this.userForm.value.name;
+    this.formJson.age = this.userForm.value.age;
+    // this.formJson.kids=this.userForm.value.kids;
     // console.log(this.userForm);
     this.submitted = true;
     console.log(this.userForm.valid);
    
     //xyz
     if (this.userForm.value.gender == true) {
-      formJson.gender = "Male";
+      this.formJson.gender = "Male";
     }
     if (this.userForm.value.gender == false) {
-      formJson.gender = "Female";
+      this.formJson.gender = "Female";
     }
     if (this.userForm.value.maritalStatus) {       //no. of kids error
-      formJson.maritalStatus = "Married";
+      this.formJson.maritalStatus = "Married";
       console.log(this.userForm.value.maritalStatus);
     }
     else {
-      formJson.maritalStatus = "Unmarried";
+      this.formJson.maritalStatus = "Unmarried";
     }
 
     if (this.userForm.value.child == true) {               //no. of kids error
-      formJson.child = "Yes";
+      this.formJson.child = "Yes";
     }
     if (this.userForm.value.child == false) {
-      formJson.child = "None";
+      this.formJson.child = "None";
     }
 
     if (this.userForm.value.profession == true) {
-      formJson.profession = "Salaried";
+      this.formJson.profession = "Salaried";
     }
     if (this.userForm.value.profession == false) {
-      formJson.profession = "Self-Employed";
+      this.formJson.profession = "Self-Employed";
     }
 
     //Validation for no. of kids
-    if (this.userForm.value.child == "None") {
-      formJson.kids = 0;
+    if (this.formJson.child == "None") {
+      this.formJson.kids = 0;
     } 
     else if (this.userForm.value.child === "Yes" && this.userForm.value.kids===0) {
        console.log(this.userForm.value.kids)
         return this.validator = "*Please enter number of Kids*";
         
       }
+      
     
     if (this.userForm.valid) {
-      this.abs.postUserDetails("details",formJson).subscribe((res)=>{
+      this.abs.postUserDetails("details",this.formJson).subscribe((res)=>{
         this.uid= res['userid'];
         //Setting uid in Local Storage
         localStorage.setItem('id',this.uid);
@@ -196,7 +200,7 @@ export class CalculatorgoalComponent implements OnInit {
     } else {
       this.router.navigateByUrl("/calculatorgoal");
     }
-    console.log("Json",formJson)
+    console.log("Json",this.formJson)
 
 
     

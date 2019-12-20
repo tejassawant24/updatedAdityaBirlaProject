@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router'
 import { AdityaBirlaServices } from "../../Shared/Services/calculatorgoal.services"
 import { SelectgoalsComponent } from "../selectgoals/selectgoals.component"
-import { Icalculatorgoal } from 'src/Shared/Interfaces(Structure)/calculatorgoal';
-import { Igoal } from 'src/Shared/Interfaces(Structure)/goal';
+// import { Icalculatorgoal } from 'src/Shared/Interfaces(Structure)/calculatorgoal';
+import { Igoal } from './../../Shared/Interfaces(Structure)/goal';
+import {Validators, FormGroup, FormBuilder} from '@angular/forms'
 
 @Component({
   selector: 'app-goals',
@@ -13,16 +14,21 @@ import { Igoal } from 'src/Shared/Interfaces(Structure)/goal';
 export class GoalsComponent implements OnInit {
  
   // public Img:any;
+  public images = [];
+  public response;
+  public answers:Object =  {}
  
   public goals: Igoal;
+  public goalData: Array<string> = [];
+  public Data;
   public data:any;
   public img:any;
   public img1:any;
   public img2:any;
-  public naav:any;
-  public xyz:any;
-  public que1:any;
-  public que2:any;
+  public userName:any;
+  public selectGoal:any;
+  public questions:any;
+ 
   public uid:any;
   // public percent:any;
   public ival:any;
@@ -33,28 +39,29 @@ export class GoalsComponent implements OnInit {
   public percent5 = [];
   public five = [];
   public age=[];
+
   // public show:boolean;
  
-  constructor(private router: Router, private route: ActivatedRoute, private abs: AdityaBirlaServices) { }
-
+  constructor(private router: Router, private route: ActivatedRoute, private abs: AdityaBirlaServices, private fb:FormBuilder) { }
+  public userForm:FormGroup;
+  
   ngOnInit() {
+    
+    
+
     // this.route.params.subscribe(params => {
     
       // let  uid = localStorage.getItem('id'); 
       // console.log(uid);
       this.abs.getdata(localStorage.getItem('id')).subscribe(res => {
-        
-        console.log("result -> ",res);
-        this.xyz = res;
-        console.log(this.xyz);
-        this.naav =this.xyz[1].name;
-        console.log(this.naav);
-        this.img=this.xyz[0].goals;
-        console.log(this.img);
-        this.img1=this.xyz[1].goals;
-        console.log(this.img1);
-        this.img2=this.xyz[2].goals;
-        console.log(this.img2);
+
+        console.log("result ->",res);
+        this.selectGoal = res;
+        console.log(this.selectGoal);
+        this.userName =this.selectGoal[0].name;
+        console.log(this.userName);
+        this.img = this.selectGoal;
+        console.log(this.img[0].goals);
       });
 
       for(let i=5;i<=25;i++){
@@ -94,84 +101,61 @@ export class GoalsComponent implements OnInit {
   }
 
 
-  goal1(){
+  goal1(data){
     console.log("=>",this.img);
   
     for(let i=0;i<this.goalQuestion.length;i++){
       // console.log(this.goalQuestion);
       // console.log(this.goalQuestion[i].type);  
-      let quetype = this.goalQuestion[i].type;
+      let questiontype = this.goalQuestion[i].type;
       // console.log(quetype);
-      if(quetype === this.img){
-        console.log(this.img);
-        console.log(quetype);
-        this.que1 = this.goalQuestion[i].questions;
-        console.log(this.goalQuestion[i].questions);
-        console.log("ang",this.que1);
+      if(questiontype === data){        //data=retirement
+        console.log(data);
+        console.log(questiontype);
+        this.questions = this.goalQuestion[i].questions;   //questions=list of questions of retirement goal        console.log(this.goalQuestion[i].questions);
+        console.log("ang",this.questions);
 
       }
     }
   }
-
-  goal2(){
-    console.log("=>",this.img1);
-
-    for(let i=0;i<this.goalQuestion.length;i++){
-      // console.log(this.goalQuestion);
-      // console.log(this.goalQuestion[i].type);  
-      let quetype = this.goalQuestion[i].type;
-      // console.log(quetype);
-      // console.log(data);
-      // console.log(quetype);
-      // console.log(this.img1);
-      if(quetype === this.img1){
-        console.log(quetype);
-        console.log(this.img1);
-        this.que1 = this.goalQuestion[i].questions
-        console.log("ang",this.que1);
-        // console.log("1");
-      }
-    }
-  } 
   
-  goal3(){
-    console.log("=>",this.img2);
-    for(let i=0;i<this.goalQuestion.length;i++){
-      // console.log(this.goalQuestion);
-      // console.log(this.goalQuestion[i].type);  
-      let quetype = this.goalQuestion[i].type;
-      // console.log(quetype);
-      if(quetype === this.img2){
-        console.log(quetype);
-        console.log(this.img2);
-        this.que1 = this.goalQuestion[i].questions
-        // console.log("1");
-        console.log(this.goalQuestion[i].questions);
-        console.log("ang",this.que1);
-        // console.log(this.que1) 
-        // console.log("name",this.que1[0]);
-      }
-    }
-  }  
+  // let answers = {
+  //   amountForGoal : 1000,
+  //   inflation : 10%,
+  // }
+  
+  // let answers = {};
+  // answered(answer, index?, variableName?){
+  //   if(variableName){
+
+  //   }
+  // }
 
   goalQuestion = [
     {
       "type": "Self Development",
       "questions": [
-        { "name": "What amount is required for your self development goal today?"},
-        { "name": "After how many years do you plan to take up your self development goal?", "options":this.number },
-        { "name": "Expected inflation (% p.a.)", "options":this.percent},
-        { "name": "Expected returns on investment (% p.a.)" , "options":this.percent5},
-        { "name": "What amount you can invest today as Lumspum?"}
-      ]
+        { 
+        "name": "What amount is required for your self development goal today?", 
+        "variableName":"Enter amount" /*flag:"amount"*/
+        },
+        { "name": "After how many years do you plan to take up your self development goal?", "variableName":"Enter number of years","options":this.number },
+        { "name": "Expected inflation (% p.a.)", "options":this.percent, "variableName":"Expected Inflation"},
+        { "name": "Expected returns on investment (% p.a.)" ,"variableName":"Expected ROI", "options":this.percent5},
+        { 
+          "name": "What amount you can invest today as Lumspum?" , 
+          "variableName":"Enter lumpsum  investment amount"
+        }
+      ],
+      "calculations":{}
     }, {
       "type": "Starting Business",
       "questions": [
-        { "name": "Amount required to start your Business today" },
-        { "name": "Expected inflation (% per annum)", "options":this.percent },
-        { "name": "After how many years do you plan to start your Business?", "options":this.number },
-        { "name": "Expected returns on investment (% per annum)", "options":this.percent5 },
-        { "name": "What amount you can invest today as Lumspum?" }
+        { "name": "Amount required to start your Business today",  "variableName":"Enter amount" },
+        { "name": "Expected inflation (% per annum)", "options":this.percent,  "variableName":"Enter number of years" },
+        { "name": "After how many years do you plan to start your Business?", "options":this.number,  "variableName": },
+        { "name": "Expected returns on investment (% per annum)", "options":this.percent5, "variableName": },
+        { "name": "What amount you can invest today as Lumspum?",  "variableName": }
       ]
     }, {
       "type": "Marriage",
@@ -218,7 +202,7 @@ export class GoalsComponent implements OnInit {
         { "name": "What amount you can invest today as Lumspum?" }
       ]
     }, {
-      "type": "Follow your Passion",
+      "type": "Follow Passion",
       "questions": [
         { "name": "What's the current cost of activity (passion) you want to pursue?" },
         { "name": "After how many years do you plan to pursue your passion?", "options":this.number },
@@ -227,7 +211,7 @@ export class GoalsComponent implements OnInit {
         { "name": "What amount you can invest today as Lumspum?" }
       ]
     }, {
-      "type": "Philantropy",
+      "type": "Philanthropy",
       "questions": [
         { "name": "What amount you would liked to contribute today, if you were to donate today?	" },
         { "name": "After how many years do you plan to contribute for the donation?", "options":this.number },
@@ -311,4 +295,45 @@ export class GoalsComponent implements OnInit {
     }
   ]
 
+  
+  
+  
+  //Fetching input values from dropdown
+  optionSelect(goalInputField,inputValue){
+  console.log("Input values from dropdown",goalInputField,inputValue);
+   //call method to insert value
+  this.goalInputValueInsert(goalInputField,inputValue);
+  }  // this.answers.push();
+ 
+  //Fetching input values from input text box
+  inputChanged(goalInputField,inputValue){
+    console.log("Input values from input text box",goalInputField,inputValue);
+    //call method to insert value
+   this.goalInputValueInsert(goalInputField,inputValue);
+
+  }
+
+  //Inserting input Values from input text box and dropdown
+  goalInputValueInsert(x,y){
+    this.answers[x]=y;
+    console.log(this.answers);
+    // this.answers.push();
+  }
+
+  Calculation(){
+
+  }
+
+
+  
+ 
 }
+
+
+
+
+
+  
+
+
+

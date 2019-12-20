@@ -19,8 +19,8 @@ body{
 	font-family: handbookPro !important;
 }
 .container-fluid{
-  padding-left:0px;
-  padding-right:0px;
+  padding-left:0px!important;
+  padding-right:0px!important;
 }
 input:hover, input:focus {
   outline: none !important;
@@ -118,7 +118,9 @@ button:hover, button:focus {
 #nav-bar{
 	position: sticky;
 	top: 0;
-	z-index: 10;
+  z-index: 10;
+  height: 50px;
+  line-height: 0;
 }
 .navbar{
 	background: #8B0000;
@@ -298,6 +300,7 @@ margin-bottom: 5px;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+  cursor: pointer;        
  
 }
 .form span.switcher input:before {
@@ -434,6 +437,7 @@ margin-right: 40px;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   color: #FFFFFF;
+  cursor: pointer;
 }
 .form1 span.switcher input:before {
   content: 'MARRIED';
@@ -516,7 +520,9 @@ margin-right: 40px;
 .baby-style img{
   width:25px;
   height: 25px;
-  margin: 10px;}
+  margin: 10px;
+  cursor: pointer;
+}
 
 .baby-style li:hover{
   
@@ -694,6 +700,7 @@ margin-bottom: 5px;margin-right: 60px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   color: #FFFFFF;
+  cursor: pointer;
 }
 .form3 span.switcher input:before {
   content: 'SALARIED';
@@ -1319,25 +1326,8 @@ width: 115PX;
     border-left: none;
   }
   .kids{ margin-left:0px;}
-  /* .users {
-      border-left: none;
-      margin-top: 40px;
+
   }
-  .form1 {
-    margin-left: 50px;
-  }
-  .user{
-    margin-bottom: 20px;
-    margin-right: 0px;
-  }
-  .form2 {
-    margin-bottom: 0px;
-    margin-right: 0px;
-    border-left: none;
-  }
-  .kids{
-    margin-left:0px;
-  }
-  .form3{margin-left: 84px;}  */
-  }
+
+
   

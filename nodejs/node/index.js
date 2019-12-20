@@ -203,9 +203,11 @@ app.post("/usergoals",function(req,res){
     // console.log(user_goal);
     let sqldata = [];
     // let othergoal = [];
-    for(let i = 0; i< 3; i++){
+    console.log("*", user_goal.length);
+    for(let i = 0; i< user_goal.length; i++){
         let add = [user_goal[i].goal,user_goal[i].goalId,userid];
-        // let goal = [user_goal[i].goal];
+        let goal = [user_goal[i].goal];
+        console.log(goal);
         console.log("usergoal",user_goal[i]);
         console.log("goalid",user_goal[i].goalId);
         console.log("=",add);

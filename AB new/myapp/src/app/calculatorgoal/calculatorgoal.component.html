@@ -15,6 +15,173 @@
   <link rel="stylesheet" type="text/css"
     href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Aditya Birla</title>
+
+  <style>
+
+
+  .range__slider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: .4em 0;
+  width: 60%;
+  height: 40px;
+} 
+.range__slider:focus {
+  outline: none;
+}
+.range__slider::-webkit-slider-runnable-track {
+  background-color: #fff;
+  height: .3em;
+  margin: .4em 0px;
+  border-radius: 2px;
+}
+.range__slider::-moz-range-track {
+  background-color: #fff;
+  height: .3em;
+  border-radius: 2px;
+}
+.range__slider::-moz-focus-outer {
+  border: 0;
+}
+.range__slider::-ms-track {
+  background-color: #fff;
+  height: .3em;
+  margin: .1em 0;
+  border-radius: 2px;
+}
+.range__slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color:#ffb100;
+  text-align: center;
+  width:0;
+  height:0;
+  border: 0;
+  border-radius:0%;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid #BD6801;
+  cursor: pointer;
+  box-sizing: border-box;
+  margin-top:5px;
+ 
+}
+.range__slider::-moz-range-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #FFB100;
+  text-align: center;
+  border: 0p;
+  border-radius:0%;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid #000;
+  border-radius: 50%;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.range__slider::-ms-thumb {
+  margin: 0;
+}
+input[type="range"] { 
+    margin: auto 10px 10px 9em;
+    -webkit-appearance: none;
+    position: relative;
+    overflow: hidden;
+    height: 40px;
+    width: 65%;
+    cursor: pointer;
+    border-radius:20px; 
+}
+.number-css{position: absolute;top:43px;margin-left: 9em;}
+.number-css span{padding: 0px 1.9px;font-size: 9.35px;color: #000;font-weight: 400;}
+::-webkit-slider-runnable-track {
+    background: #fff;
+}
+::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px; 
+    height: 40px;
+    background: #fff;
+    box-shadow: -100vw 0 0 100vw #FFB100;
+    color: #fff;
+    border: 0px solid #999; 
+}
+::-moz-range-track {
+    height: 40px;
+    background: #ddd;
+}
+::-moz-range-thumb {
+    background: #fff;
+    height: 40px;
+    width: 20px;
+    border: 3px solid #999;
+    border-radius: 0 !important;
+    box-shadow: -100vw 0 0 100vw #FFB100;
+    box-sizing: border-box;
+}
+::-ms-fill-lower { 
+    background: #FFB100;
+}
+::-ms-thumb { 
+    background: #fff;
+    height: 40px;
+    width: 20px;
+    box-sizing: border-box;
+}
+::-ms-ticks-after { 
+    display: none; 
+}
+::-ms-ticks-before { 
+    display: none; 
+}
+::-ms-track { 
+    background: #ddd;
+    color: transparent;
+    height: 40px;
+    border: none;
+}
+::-ms-tooltip { 
+    display: none;
+}
+#amount, .amount{
+  height: 37px;
+    text-align: center;
+    font-size: 19px;
+    width: 100px;
+    border-radius: 20px;
+    border: 0;
+    /* position: absolute;
+    top: 9px;
+    margin-left: 10px; */
+}
+
+.head-css{text-align: left;
+    margin-left: 7em;
+    font-size: 20px;
+    margin-bottom: 10px;}
+
+.mob{display: none;}
+.range{width: 100%;display: flex;position: relative;}
+@media screen and (max-width:1024px){
+  .number-css span{padding: 0px 1.5px;font-size: 8px;}
+}
+@media screen and (max-width:768px){
+  .range, .number-css{display: none;}
+  .mob{display: block;}
+.amount{
+  height: 37px;   
+    width: 200px;
+    /* width: 50%; */
+    margin: auto;
+}
+}
+</style>
+ 
+ 
 </head>
 
 <body>
@@ -106,11 +273,25 @@
         </div>
 
 
-        <!--	<div class="age">
-						<div class="row">
-							<p>SELECT AGE</p>
-						</div>
-					</div>-->
+        <div class="age col-md-12">
+            <p class="head-css"><strong>SELECT AGE</strong></p>
+            <div class="row">
+               
+              <div class='range'>                
+                <input class='range__slider' id='slider' max='72' min='18' oninput='amount.value=slider.value' type='range' value='18'>
+                <input class='range__amount' id='amount' oninput='slider.value=amount.value' type='text' value='18'>                
+              </div>
+             
+              <div class="number-css">
+                <span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span><span>32</span><span>33</span><span>34</span><span>35</span><span>36</span><span>37</span><span>38</span><span>39</span><span>40</span><span>41</span><span>42</span><span>43</span><span>44</span><span>45</span><span>46</span><span>47</span><span>48</span><span>49</span><span>50</span><span>51</span><span>52</span><span>53</span><span>54</span><span>55</span><span>56</span><span>57</span><span>58</span><span>59</span><span>60</span><span>61</span><span>62</span><span>63</span><span>64</span><span>65</span><span>66</span><span>67</span><span>68</span><span>69</span><span>70</span><span>71</span><span>72+</span>
+              </div>
+            </div>
+
+            <div class="mob text-center">
+              <label>Enter Your Age</label>
+                <input type='text' class='amount' value='18' max='100' min='18'>
+            </div>
+          </div>
 
         <div class="marrial">
           <div class="row">
@@ -145,7 +326,7 @@
                   <li><img src="../../assets/img/2 baby icon.png" (click)="kid2()"></li>
                   <li><img src="../../assets/img/3 baby icon.png" (click)="kid3()" style="width: 40px;"></li>
                   <li style="border-right:none;"><img src="../../assets/img/4 baby.png" style="width: 50px;" (click)="kid4()"></li>
-                  <input *ngIf="userForm.value.child == true" value="{{numberOfKids}}" class=form-control type="text"
+                  <input *ngIf="userForm.value.child == true" value="{{formJson.kids}}" class=form-control type="text"
                     id="ip3" placeholder="2" formControlName="kids" />
                   <!--Validation for kids-->
                   <!-- <div class="alert" *ngIf="userForm.get('kids').hasError('required') && submitted "> -->

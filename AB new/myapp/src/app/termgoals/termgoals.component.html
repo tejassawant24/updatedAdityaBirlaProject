@@ -27,15 +27,15 @@
                         <p>Hi {{naav}}, to reach your life goals, you would need to start SIPs of <span style="color: #8B0000"> ₹ 25,000.</span>Here’s<br>
                           the break-up of your goals based on the goal timeline.</p>
                     </div>
-                    <div class="col-md-12 short">
+                    <div *ngFor="let goal of img" class="col-md-12 short">
                          <h1>Short Term Goals</h1>
                          <div class="row">
                                 <div class="col-md-6">
                                     <div class="testimonials clearfix">
                                         <div class="img-style">
                                     
-                                        <img src="../../assets/img/{{img}}color.png" class="img-fluid">
-                                        {{img}}
+                                        <img src="../../assets/img/{{goal.goals}}color.png" class="img-fluid">
+                                        {{goal.goals}}
                                         </div>
                                     
                                         <div class="short-details"> 

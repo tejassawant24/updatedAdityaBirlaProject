@@ -53,7 +53,9 @@ export class SelectgoalsComponent implements OnInit {
 
   constructor(  private router : Router, private abs: AdityaBirlaServices) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 
   data(){
     let userGoals=
