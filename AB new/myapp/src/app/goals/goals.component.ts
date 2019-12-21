@@ -663,19 +663,7 @@ export class GoalsComponent implements OnInit {
  
 calculationMethod(){
 
-  for(let i=0;i<this.goalQuestion.length;i++){
-    if(this.goalQuestion[i].type === "Starting Business"){
-
-        // Calculating future Value Of Starting Business
-        this.futureValueOfStartingBusiness=this.futureValue(this.goalsInputValue['enterAmount'], this.goalsInputValue['expectedInflation'], this.goalsInputValue['enterNumberOfYears'] )
-        console.log("This is calculation for Starting Business",this.futureValueOfStartingBusiness);
-
-        // Calculating SIP (considering no lumpsum amount is invested today)
-        this.sipNoLumpsum=this.PMT(this.goalsInputValue['expectedReturnsOnInvestment'], this.futureValueOfStartingBusiness, this.goalsInputValue['enterAmount'], 1);
-
-        // // Calculating SIP (considering  lumpsum amount is invested today)
-        this.sipWithLumpsum=this.PMT(this.goalsInputValue['expectedReturnsOnInvestment'], this.futureValueOfStartingBusiness, this.goalsInputValue['enterAmount'], 1);
-    }
+  
 
   for(let i=0;i<this.goalQuestion.length;i++){
     if(this.goalQuestion[i].type === "Starting Business"){
