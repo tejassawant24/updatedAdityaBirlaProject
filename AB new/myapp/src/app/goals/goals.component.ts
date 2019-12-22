@@ -101,7 +101,7 @@ export class GoalsComponent implements OnInit {
         }
 
     }
-
+   
   
 
   Replan() {
@@ -666,7 +666,34 @@ calculationMethod(){
   
 
   for(let i=0;i<this.goalQuestion.length;i++){
-    if(this.goalQuestion[i].type === "Starting Business"){
+
+    if(this.goalQuestion[i].type === "Self Development"){
+
+      // Calculating future Value Of Starting Business
+      this.futureValueOfStartingBusiness=this.futureValue(this.goalsInputValue['enterAmount'], this.goalsInputValue['expectedInflation'], this.goalsInputValue['enterNumberOfYears'] )
+      console.log("This is calculation for Starting Business",this.futureValueOfStartingBusiness);
+
+      // Calculating SIP (considering no lumpsum amount is invested today)
+      this.sipNoLumpsum=this.PMT(this.goalsInputValue['expectedReturnsOnInvestment'], this.futureValueOfStartingBusiness, this.goalsInputValue['enterAmount'], 1);
+
+      // // Calculating SIP (considering  lumpsum amount is invested today)
+      this.sipWithLumpsum=this.PMT(this.goalsInputValue['expectedReturnsOnInvestment'], this.futureValueOfStartingBusiness, this.goalsInputValue['enterAmount'], 1);
+  }
+
+  if(this.goalQuestion[i].type === "Starting Business"){
+
+    // Calculating future Value Of Starting Business
+    this.futureValueOfStartingBusiness=this.futureValue(this.goalsInputValue['enterAmount'], this.goalsInputValue['expectedInflation'], this.goalsInputValue['enterNumberOfYears'] )
+    console.log("This is calculation for Starting Business",this.futureValueOfStartingBusiness);
+
+    // Calculating SIP (considering no lumpsum amount is invested today)
+    this.sipNoLumpsum=this.PMT(this.goalsInputValue['expectedReturnsOnInvestment'], this.futureValueOfStartingBusiness, this.goalsInputValue['enterAmount'], 1);
+
+    // // Calculating SIP (considering  lumpsum amount is invested today)
+    this.sipWithLumpsum=this.PMT(this.goalsInputValue['expectedReturnsOnInvestment'], this.futureValueOfStartingBusiness, this.goalsInputValue['enterAmount'], 1);
+}
+
+    if(this.goalQuestion[i].type === "Marriage"){
 
         // Calculating future Value Of Starting Business
         this.futureValueOfStartingBusiness=this.futureValue(this.goalsInputValue['enterAmount'], this.goalsInputValue['expectedInflation'], this.goalsInputValue['enterNumberOfYears'] )
@@ -680,7 +707,7 @@ calculationMethod(){
     }
 
 
-    if(this.questionType==="Marriage"){
+    if(this.questionType==="Honeymoon"){
 
          // Calculating future Value Of Starting Business
          this.futureValueOfStartingBusiness=this.futureValue(this.goalsInputValue['enterAmount'], this.goalsInputValue['expectedInflation'], this.goalsInputValue['enterNumberOfYears'] )
