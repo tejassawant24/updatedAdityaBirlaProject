@@ -50,7 +50,7 @@
                 <div class="row goals">
                     <div class="col-md-12 goals-style">
                         <ul>
-                        <li *ngFor="let goal of img; let goalIndex = index"> <a (click)="goal1(goal.goals)"><span class="notify-badge">{{goalIndex + 1}}</span><img src="../../assets/img/{{goal.goals}}.png"></a><p>{{goal.goals}}</p></li> 
+                        <li *ngFor="let goal of img; let goalIndex = index"> <a (click)="onGoalClick(goal.goals)"><span class="notify-badge">{{goalIndex + 1}}</span><img src="../../assets/img/{{goal.goals}}.png"></a><p>{{goal.goals}}</p></li> 
 
                     </ul>
                     </div>
@@ -85,8 +85,7 @@
     
                 <div class="row offer">
                     <div class="subscribe">
-                        <P>Hi {{userName}}, after <span>27 years </span>(as you retire), your current annual expenses of ₹ 50,000 would swell to ₹ <span>1.9 lakh</span> . To<br>
-                        maintain the same lifestyle post retirement, you would need a retirement savings of ₹ 23.33 lakh .<br>If you invest ₹ <span>25,000 </span> lumpsum today for your retirement, you would need to start a monthly SIP of <span>₹ 739 </span> and continue till you <br>turn <span>50 </span>. <br>What's more, if you opt for the CSIP* facility, you can get a life insurance cover of upto <span>₹ 73,881 </span> at no additional cost.</P>
+                        <P>{{description}}</P>
                      </div>
                  </div>
             
