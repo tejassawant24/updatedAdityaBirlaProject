@@ -1,0 +1,22 @@
+<p>reactive-form works!</p>
+
+<div class="dropdown-style">
+    <div class="row">
+        <div class="col-md-4 col-sm-6  dropdowns" *ngFor="let questions of questions; let questionIndex = index">   <!--que1=list of questions of 1 goal-->
+            <!-- <p>At what age you plan to retire?</p> -->
+            <p>{{questions.name}}</p>
+            <div class="dropdown" >
+                <!-- <select *ngIf="questions.options" ngmodel="modeljson['question.flag']'" class="dropdown-toggle" type="text" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
+                    
+                    <!-- <option>Enter amount</option> -->
+                    <!-- <option *ngFor="let field of que1">{{field.fname}}</option> -->
+                <select *ngIf="questions.options" forcontrolName="question.name" class="dropdown-toggle" type="text" (change)="optionSelect(questions.variableName, $event.target.value)" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">    
+                <option value="{{options.value}}" *ngFor="let options of questions.options; ">
+                    {{options.name}}
+                </option>
+                </select>
+                <p *ngIf="!questions.options"><input (input)="inputChanged( questions.variableName, $event.target.value)"style="width:80%; color:coral;height:30px; border-radius:15px; padding:0px 10px"  type="text" ></p>
+            </div>
+        </div>
+    </div>
+</div>

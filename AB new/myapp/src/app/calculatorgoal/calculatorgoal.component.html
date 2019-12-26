@@ -331,7 +331,11 @@ input[type="range"] {
                     id="ip3" placeholder="2" formControlName="kids" />
                   <!--Validation for kids-->
                   <!-- <div class="alert" *ngIf="userForm.get('kids').hasError('required') && submitted "> -->
-                  <div class="alert">
+                  <!-- <div class="alert" *ngIf="!this.userForm.value.child === "true" && this.userForm.value.kids===0">
+                    {{validator}}
+                  </div> -->
+
+                  <div class="alert" *ngIf="!userForm.get('child').true && userForm.get('kids').value" >
                     {{validator}}
                   </div>
                   <div class="alert" *ngIf="!userForm.get('kids').valid && submitted  ">

@@ -81,6 +81,15 @@
                     </div>
                 </div>
             </div>
+
+            
+           
+            <div class="row lastbtns">
+                <div class="twobtn col-md-12">
+                    {{errMsg}}
+                    <button type="button" class="btn nextbtn" (click)="calculateFunction()"><b>Calculate</b></button>
+               </div>
+           </div>
     
     
                 <div class="row offer">
@@ -93,7 +102,7 @@
                 <div class="row lastbtns">
                     <div class="twobtn col-md-12">
                        <a><button type="button" class="btn nextbtn" (click)="Replan()"><b>REPLAN</b></button></a>
-                        <a href="term_goals.html" routerLink="/termgoals" ><button type="button" class="btn nextbtn"><b>NEXT</b></button></a>
+                        <a href="term_goals.html" routerLink="/termgoals" ><button type="button" class="btn nextbtn" (click)="SubmitGoalsData()"><b>NEXT</b></button></a>
                    </div>
                </div>
     

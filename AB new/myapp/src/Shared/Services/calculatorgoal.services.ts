@@ -23,7 +23,7 @@ export class AdityaBirlaServices{
     }
 
     postGoalData(routename,data):Observable<Igoal[]>{
-        console.log("=>",this.url+routename+localStorage.getItem('id'),data);
+        // console.log("=>",this.url+routename+localStorage.getItem('id'),data);
         return this.http.post<Igoal[]>(this.url+routename,data,{headers:this.headers});
     }
 
@@ -40,5 +40,10 @@ export class AdityaBirlaServices{
     getSelecetdGoal(){
         return this.setselectedgoals;
     }
+
+    postInputValuesAndResultOfGoals(routename,/*data*/){
+        // console.log("=>",this.url+routename+localStorage.getItem('id'),data);
+        return this.http.post<Igoal[]>(this.url+routename,/*data,*/{headers:this.headers});
+    }  
     
 }
